@@ -9,7 +9,6 @@ env_config = os.getenv("APP_SETTINGS", "config.DevelopmentConfig")
 weather_app.config.from_object(env_config)
 data_processor = DataProcessor(weather_app)
 db_handler = DBHandler.get_instance(weather_app)
-weather_app.app_context().push()
 
 
 @weather_app.route('/', methods=['GET'])

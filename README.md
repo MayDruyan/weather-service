@@ -20,7 +20,6 @@ Using Postman:
     "lat": "-90"  
 }
 
-
 ### Future Developments
 - Implement a listener to new data such that a user can enter csv files and keep querying the DB for results
 - Support more conversions (for example from Kelvin to Celsius)
