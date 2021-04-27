@@ -9,12 +9,12 @@ https://weather-service-tomorrowio.herokuapp.com/
 
 ### How to use the service
 Using Postman:
-1.	For /weather/data, send GET request with body as json:  
+1.	In order to get data points of specific location, using the route /weather/data, send GET request with body as json:  
 {  
     "lon": "-178",  
     "lat": "-90"  
 }
-2.	For /weather/summarize, send GET request with body as json:  
+2.	In order to get a summary of the data points of specific location, using the route /weather/summarize, send GET request with body as json:  
 {  
     "lon": "-178",   
     "lat": "-90"  
