@@ -1,5 +1,5 @@
-from models import DataPoint, db
 import pandas as pd
+from models import DataPoint, db
 
 INDENTATION = 4
 DB_NAME = "data_point"

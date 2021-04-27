@@ -57,5 +57,3 @@ class DataProcessor:
     @staticmethod
     def _convert_from_in_to_mm(val):
         return val * 25.4
-
-

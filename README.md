@@ -22,3 +22,4 @@ Using Postman:
 - Support more conversions (for example from Kelvin to Celsius)
 - Implement a logging system such that the server will be able to show logs and document its actions
 - Add another service that does the pre-processing of the csv files, such that the server will be independent
+
