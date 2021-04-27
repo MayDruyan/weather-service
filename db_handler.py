@@ -27,7 +27,10 @@ class DBHandler:
         return db
 
     def check_if_row_exists_by_location(self, longitude, latitude):
-        return db.session.query(db.exists().where(DataPoint.longitude == longitude and DataPoint.latitude == latitude)).scalar()
+        df = pd.read_sql(f"SELECT * FROM data_point WHERE EXISTS (SELECT * FROM data_point WHERE latitude={latitude} AND longitude={longitude})", db.session.bind)
+        if df.empty:
+            return False
+        return True
 
     def query_db_by_location(self, longitude, latitude):
         df = pd.read_sql(f"SELECT * "
