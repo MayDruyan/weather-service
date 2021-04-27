@@ -50,10 +50,12 @@ class DataProcessor:
             df['precipitation'] = df['precipitation'].apply(self._convert_from_in_to_mm)
         return df
 
-    def _convert_from_f_to_c(self, val):
+    @staticmethod
+    def _convert_from_f_to_c(val):
         return (val - 32) / 1.8
 
-    def _convert_from_in_to_mm(self, val):
+    @staticmethod
+    def _convert_from_in_to_mm(val):
         return val * 25.4
 
 

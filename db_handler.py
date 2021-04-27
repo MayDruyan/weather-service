@@ -32,8 +32,8 @@ class DBHandler:
     def query_db_by_location(self, longitude, latitude):
         df = pd.read_sql(f"SELECT * "
                          f"FROM {DB_NAME} WHERE longitude={longitude} AND latitude={latitude}", db.session.bind)
-        df = df.transpose()
-        return df.to_json(indent=INDENTATION, date_format='iso')
+
+        return df.to_json(indent=INDENTATION, date_format='iso', orient='records')
 
     def query_db_summarize_location(self, longitude, latitude):
         df = pd.read_sql(f"SELECT "
@@ -44,5 +44,5 @@ class DBHandler:
                          f"AVG(temperature) AS avg_temperature, "
                          f"AVG(precipitation) AS avg_precipitation "
                          f"FROM {DB_NAME} WHERE longitude={longitude} AND latitude={latitude}", db.session.bind)
-        df = df.transpose()
-        return df.to_json(indent=INDENTATION)
+
+        return df.to_json(indent=INDENTATION, orient='records')

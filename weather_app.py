@@ -15,9 +15,14 @@ weather_app.app_context().push()
 
 @weather_app.route('/', methods=['GET'])
 def welcome_to_service():
+    return "Welcome to my weather service!"
+
+
+@weather_app.route('/pre_process', methods=['GET'])
+def pre_process():
     thread = AppContextThread(target=data_processor.process_files)
     thread.start()
-    return "Welcome to my weather service!"
+    return "Pre-processing csv files..."
 
 
 @weather_app.route('/weather/data', methods=['GET'])
