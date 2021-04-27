@@ -24,10 +24,17 @@ def welcome_to_service():
 def get_data_by_location():
     data = request.get_json()
     try:
-        longitude = data["lon"]
-        latitude = data["lat"]
-        results = db_handler.query_db_by_location(longitude, latitude)
-        return results
+        if 'lon' in data and 'lat' in data:
+            longitude = data["lon"]
+            latitude = data["lat"]
+            # Checking there is a row matching to the given longitude and latitude
+            row_exists = db_handler.check_if_row_exists_by_location(longitude, latitude)
+            if not row_exists:
+                return f"The given longitude: {longitude} and latitude: {latitude} does not match any location in DB.", 400
+            specific_location_entries = db_handler.query_db_by_location(longitude, latitude)
+            return specific_location_entries
+        else:
+            return f"Not enough details were sent to query DB. Please enter lat as latitude and lon as longitude", 400
     except Exception as e:
         return str(e), 400
 
@@ -36,10 +43,17 @@ def get_data_by_location():
 def summarize_by_location():
     data = request.get_json()
     try:
-        longitude = data["lon"]
-        latitude = data["lat"]
-        result = db_handler.query_db_summarize_location(longitude, latitude)
-        return result
+        if 'lon' in data and 'lat' in data:
+            longitude = data["lon"]
+            latitude = data["lat"]
+            # Checking there is a row matching to the given longitude and latitude
+            row_exists = db_handler.check_if_row_exists_by_location(longitude, latitude)
+            if not row_exists:
+                return f"The given longitude: {longitude}, and latitude: {latitude}, does not match any location in DB.", 400
+            location_summary = db_handler.query_db_summarize_location(longitude, latitude)
+            return location_summary
+        else:
+            return f"Not enough details were sent to query DB. Please enter lat as latitude and lon as longitude", 400
     except Exception as e:
         return str(e), 400
 

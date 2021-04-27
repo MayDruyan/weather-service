@@ -26,15 +26,8 @@ class DBHandler:
     def get_db(self):
         return db
 
-    def add_data_point(self, longitude, latitude, forecast_time, temperature, precipitation):
-        try:
-            datapoint = DataPoint(longitude, latitude, forecast_time, temperature, precipitation)
-            db.session.add(datapoint)
-        except Exception as e:
-            print(e)
-
-    def commit(self):
-        db.session.commit()
+    def check_if_row_exists_by_location(self, longitude, latitude):
+        return db.session.query(db.exists().where(DataPoint.longitude == longitude and DataPoint.latitude == latitude)).scalar()
 
     def query_db_by_location(self, longitude, latitude):
         df = pd.read_sql(f"SELECT * "
