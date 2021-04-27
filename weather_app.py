@@ -4,6 +4,7 @@ from flask import Flask, request
 from data_processor import DataProcessor
 from flaskthreads import AppContextThread
 
+
 weather_app = Flask(__name__)
 env_config = os.getenv("APP_SETTINGS", "config.DevelopmentConfig")
 weather_app.config.from_object(env_config)
