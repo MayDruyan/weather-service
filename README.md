@@ -1,4 +1,8 @@
 # Tomorrow.io Weather Service
+In this assignment I have created a weather service using Flask, Python and SQLAlchemy that processes csv files into PostgreSQL DB, such that the user can query
+for data points concerning specific location. It returns temperature by celsius and precipitation by mm/hr. If needed, it converts the data from the csv file to this measurement.
+The user can also get a summary of weather for a specific location.
+The service is given as API and is deployed on Heroku.
 
 ### URL to working service
 https://weather-service-tomorrowio.herokuapp.com/
