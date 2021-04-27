@@ -2,6 +2,7 @@ import os
 from db_handler import DBHandler
 from flask import Flask, request
 from data_processor import DataProcessor
+from flaskthreads import AppContextThread
 
 weather_app = Flask(__name__)
 env_config = os.getenv("APP_SETTINGS", "config.DevelopmentConfig")
@@ -14,6 +15,8 @@ weather_app.app_context().push()
 
 @weather_app.route('/', methods=['GET'])
 def welcome_to_service():
+    thread = AppContextThread(target=data_processor.process_files)
+    thread.start()
     return "Welcome to my weather service!"
 
 
@@ -42,5 +45,4 @@ def summarize_by_location():
 
 
 if __name__ == '__main__':
-    data_processor.process_files()
     weather_app.run()

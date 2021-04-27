@@ -15,6 +15,7 @@ pandas = "*"
 flask-marshmallow = "*"
 marshmallow = "*"
 marshmallow-sqlalchemy = "*"
+flask-threads = "*"
 
 [dev-packages]
 

@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "b4e217542f85004d1d813fd337aefa2898d75fc82ce95aa03b59be81ec9a53be"
+            "sha256": "02ece247dd7bff1cfe626a43ed0e6b078ac7c677b4d5f4a00e999537053f0fa4"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -70,6 +70,13 @@
             ],
             "index": "pypi",
             "version": "==2.5.1"
+        },
+        "flask-threads": {
+            "hashes": [
+                "sha256:84df4e4d98f53d75aa403f52986d155db0319d0441ec7324259631bdcb512195"
+            ],
+            "index": "pypi",
+            "version": "==0.1.0"
         },
         "greenlet": {
             "hashes": [
@@ -227,11 +234,11 @@
         },
         "marshmallow-sqlalchemy": {
             "hashes": [
-                "sha256:b217c6327bcf291e843dc1c2c20f0915061d4ecc303f0c5be40f23206607f702",
-                "sha256:ee3ead3b83de6608c6850ff60515691b0dc556ca226680f8a82b9f785cdb71b1"
+                "sha256:40faf740ff7d95c83bf9178da9a8be33a9b28f9c76020dfa7e82d953acf2acdc",
+                "sha256:823ae5ce51cb42522f6185089fbe9551af86198f474b6c805e55292329ec904c"
             ],
             "index": "pypi",
-            "version": "==0.24.2"
+            "version": "==0.24.3"
         },
         "numpy": {
             "hashes": [

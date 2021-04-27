@@ -9,19 +9,19 @@ class DBHandler:
     __instance = None
 
     @staticmethod
-    def get_instance(app):
+    def get_instance(weather_app):
         """ Static access method. """
         if DBHandler.__instance is None:
-            DBHandler(app)
+            DBHandler(weather_app)
         return DBHandler.__instance
 
-    def __init__(self, app):
+    def __init__(self, weather_app):
         """ Virtually private constructor. """
         if DBHandler.__instance is not None:
             raise Exception("This class is a singleton!")
         else:
             DBHandler.__instance = self
-            db.init_app(app)
+            db.init_app(weather_app)
 
     def get_db(self):
         return db
