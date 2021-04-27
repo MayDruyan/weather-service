@@ -12,6 +12,11 @@ db_handler = DBHandler.get_instance(weather_app)
 weather_app.app_context().push()
 
 
+@weather_app.route('/', methods=['GET'])
+def welcome_to_service():
+    return "Welcome to my weather service!"
+
+
 @weather_app.route('/weather/data', methods=['GET'])
 def get_data_by_location():
     data = request.get_json()
@@ -38,4 +43,4 @@ def summarize_by_location():
 
 if __name__ == '__main__':
     data_processor.process_files()
-    weather_app.run(debug=True)
+    weather_app.run()
