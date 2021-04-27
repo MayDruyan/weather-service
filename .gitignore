@@ -1,3 +1,5 @@
 /venv
 *.cfg
 *.docx
+/.idea
+__pycache__
