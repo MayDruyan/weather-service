@@ -4,8 +4,9 @@ from flask import Flask, request
 from data_processor import DataProcessor
 
 weather_app = Flask(__name__)
-weather_app.config.from_object(os.environ['APP_SETTINGS'])
-weather_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+env_config = os.getenv("APP_SETTINGS", "config.DevelopmentConfig")
+weather_app.config.from_object(env_config)
+
 data_processor = DataProcessor(weather_app)
 db_handler = DBHandler.get_instance(weather_app)
 weather_app.app_context().push()
